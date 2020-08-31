@@ -8,7 +8,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from './Avatar';
-import Metrics from '../Features/Metrics/Metrics';
+import MetricsSelection from '../Features/MetricsSelection/MetricsSelection';
+import CurrentMetrics from '../Features/CurrentMetrics/CurrentMetrics';
 
 const useStyles = makeStyles({
   card: {
@@ -20,7 +21,8 @@ export default () => {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
-      <Metrics />
+      <MetricsSelection />
+      <CurrentMetrics />
       <CardHeader title="OK, JBui, you're all setup. Now What?" />
       <CardContent>
         <List>

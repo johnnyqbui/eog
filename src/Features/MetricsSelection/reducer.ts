@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from 'redux-starter-kit';
 
 export type Metrics = {
-  metrics: Array<string>
+  metrics: Array<string>;
 };
 
 export type ApiErrorAction = {
@@ -10,8 +10,8 @@ export type ApiErrorAction = {
 
 const initialState = {
   metrics: [],
-  selectedMetrics: []
-}
+  selectedMetrics: [],
+};
 
 const slice = createSlice({
   name: 'metrics',
@@ -19,17 +19,15 @@ const slice = createSlice({
   reducers: {
     selectedMetric: (state: any, action: any) => {
       const { selectedMetrics } = state;
-      const isMetricSelected = selectedMetrics.includes(action.payload)
-      console.log(action.payload, isMetricSelected)
+      const isMetricSelected = selectedMetrics.includes(action.payload);
       if (isMetricSelected) {
-        const filtered = selectedMetrics.filter((selectedMetric: string) => selectedMetric !== action.payload)
-        console.log({ filtered })
+        const filtered = selectedMetrics.filter((selectedMetric: string) => selectedMetric !== action.payload);
         return {
           ...state,
-          selectedMetrics: filtered
-        }
+          selectedMetrics: filtered,
+        };
       } else {
-        state.selectedMetrics.push(action.payload)
+        state.selectedMetrics.push(action.payload);
       }
     },
     metricsReceived: (state, action: any) => {

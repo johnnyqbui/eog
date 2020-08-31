@@ -7,6 +7,9 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import Typography from '@material-ui/core/Typography';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
 
 const client = createClient({
   url: 'https://react.eogresources.com/graphql',
@@ -33,8 +36,7 @@ const Metrics = () => {
   const { metrics, selectedMetrics } = useSelector(getMetrics);
   const [result] = useQuery({ query });
   const { fetching, data, error } = result;
-  console.log({ selectedMetrics })
-  const [checked, setChecked] = useState(true);
+  console.log({ selectedMetrics });
   const handleChange = (event: any) => {
     dispatch(actions.selectedMetric(event.target.value));
   };
@@ -50,25 +52,27 @@ const Metrics = () => {
   }, [dispatch, data, error]);
 
   if (fetching) return <LinearProgress />;
-  console.log({ metrics })
   return (
-    <FormControl component="fieldset">
-      <FormLabel component="legend">Metrics</FormLabel>
-      {metrics.map((metric: string) =>
-        <FormControlLabel
-          label={metric}
-          value={metric}
-          control={
-            <Checkbox
-              color="primary"
-              checked={selectedMetrics.includes(metric)}
-              onChange={handleChange}
-              inputProps={{ 'aria-label': 'primary checkbox' }}
-            />
-          }
-          labelPlacement="start"
-        />
-      )}
-    </FormControl>
-  )
+    <Card>
+      <CardHeader title="Metrics Selection" />
+      <FormControl component="fieldset">
+        {metrics.map((metric: string) => (
+          <FormControlLabel
+            key={metric}
+            label={metric}
+            value={metric}
+            control={
+              <Checkbox
+                color="primary"
+                checked={selectedMetrics.includes(metric)}
+                onChange={handleChange}
+                inputProps={{ 'aria-label': 'primary checkbox' }}
+              />
+            }
+            labelPlacement="start"
+          />
+        ))}
+      </FormControl>
+    </Card>
+  );
 };
