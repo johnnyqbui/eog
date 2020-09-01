@@ -5,11 +5,13 @@
   "dependencies": {
     "@material-ui/core": "^4.6.1",
     "@material-ui/icons": "^4.5.1",
+    "@nivo/line": "^0.62.0",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.3",
     "@types/react-redux": "^7.1.5",
     "graphql": "^14.5.8",
     "isomorphic-fetch": "^2.2.1",
+    "moment": "^2.27.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-redux": "^7.1.3",

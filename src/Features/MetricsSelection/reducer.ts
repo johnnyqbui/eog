@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from 'redux-starter-kit';
+import { createSlice } from 'redux-starter-kit';
 
 export type Metrics = {
   metrics: Array<string>;
